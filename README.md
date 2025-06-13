@@ -1,0 +1,693 @@
+# knowvivek.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MingBao Lin&#39;s home page">
+    <meta name="keywords" content="林明宝, Mingbao Lin" />
+    <title>Mingbao Lin's Homepage--林明宝的个人主页</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll("[data-en]");
+            elements.forEach(el => {
+                el.innerHTML = el.getAttribute("data-en");
+            });
+            document.getElementById("lang-toggle").innerText = "切换到中文";
+            document.documentElement.lang = "en";
+            // Initialize footer text
+            updateFooterText();
+        });
+
+        function toggleLanguage() {
+            const elements = document.querySelectorAll("[data-en]");
+            let isEnglish = document.documentElement.lang === "en";
+            
+            elements.forEach(el => {
+                el.innerHTML = isEnglish ? el.getAttribute("data-zh") : el.getAttribute("data-en");
+            });
+            
+            document.getElementById("lang-toggle").innerText = isEnglish ? "Switch to English" : "切换到中文";
+            document.documentElement.lang = isEnglish ? "zh-CN" : "en";
+            // Update footer text when language is toggled
+            updateFooterText();
+        }
+
+        function updateFooterText() {
+            const footerText = document.documentElement.lang === "en" 
+                ? "&copy; 2025 Mingbao Lin. All rights reserved. | Contact: linmb001@outlook.com" 
+                : "&copy; 2025 林明宝. 保留所有权利。 | 联系方式: linmb001@outlook.com";
+            document.getElementById("footer-text").innerHTML = footerText;
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #333;
+            margin-top: 105px;
+            padding-bottom: 60px;
+            font-size: 16px;
+        }
+        .navbar {
+            background-color: #d3d3d3;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+            padding: 10px 0;
+        }
+        .navbar a, .navbar button {
+            color: black;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 0;
+        }
+        .section-title {
+            color: #2575fc;
+            font-weight: bold;
+        }
+        .justify-text {
+            text-align: justify;
+            line-height: 1.6; /* 可选：调整行高以提高可读性 */
+        }
+        .profile-img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 50%;
+        }
+        .icon-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .icon-links a {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 5px;
+        }
+        .icon-links img {
+            width: 40px;
+        }
+        .icon-links span {
+            font-size: 14px;
+            color: #333;
+            margin-top: 3px;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 0.1px 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 9999;
+        }
+        footer span {
+            font-size: 14px;
+        }
+        .publication-list {
+            margin-top: 20px;
+        }
+        .publication-item {
+            margin-bottom: 20px;
+        }
+        .publication-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .publication-authors {
+            font-style: italic;
+            color: #555;
+        }
+        .publication-info {
+            margin-top: 5px;
+            color: #777;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .hidden-map-container {
+            display: none; /* 隐藏地图容器 */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#" data-zh="学术主页" data-en="Academic Homepage">Academic Homepage</a>
+            <button id="lang-toggle" class="btn btn-light" onclick="toggleLanguage()">切换到中文</button>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="profile.jpg" class="profile-img" alt="Personal Photo">
+                <h3 class="mt-3" data-zh="林明宝" data-en="Mingbao Lin">Mingbao Lin</h3>
+                <p class="text-muted" data-zh="博士 | 研究员 | 计算机科学" data-en="PhD | Researcher | Computer Science">PhD | Researcher | Computer Science</p>
+                <div class="icon-links">
+                    <a href="mailto:linmb001@outlook.com" title="Email">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg" alt="Outlook Email">
+                        <span data-zh="邮件" data-en="Email">邮件</span>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=Dp3L1bsAAAAJ&hl=en&oi=ao" target="_blank" title="Google Scholar">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar">
+                        <span data-zh="学术" data-en="Scholar">学术</span>
+                    </a>  
+                    <a href="https://github.com/lmbxmu" target="_blank" title="GitHub">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+                        <span data-zh="GitHub" data-en="GitHub">GitHub</span>
+                    </a>                       
+                    <a href="https://www.linkedin.com/in/mingbao-lin-890444105/" target="_blank" title="LinkedIn">
+                        <img src="https://cdn.worldvectorlogo.com/logos/linkedin-icon-2.svg" alt="LinkedIn">
+                        <span data-zh="领英" data-en="LinkedIn">领英</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h4 class="section-title" data-zh="个人简介" data-en="About Me">About Me</h4>
+                <p class = "justify-text" data-zh="我是林明宝。我目前是新加坡国立大学的访问研究员，不久将加入新加坡乐天公司，担任首席研究科学家一职。我在厦门大学完成了智能科学与技术专业的博士学位。 <br><br>
+                    
+我始终对技术研究怀有热忱，热衷于持续学习与钻研前沿技术。一方面，我积极与各高校的老师和学生展开紧密合作，共同撰写学术论文，在思想的碰撞中不断探索技术的边界；另一方面，我在工业界实践中不断强化技术落地的理念，致力于将研究成果转化为实际产品，推动技术在产业中的应用与发展。 <br><br>
+                    
+闲暇时我喜欢长跑，已经完成了六次全程马拉松。我觉得跑马拉松需要耐心和毅力，这些品质对我的工作也有帮助。我是个喜欢尝试新事物、探索各种可能性的人。这种冒险精神让我能用创意去面对挑战，也让我的生活更加丰富多彩。" 
+                   data-en="I am Mingbao Lin. I am currently a Visiting Research Fellow at the National University of Singapore and will soon be joining Rakuten Singapore as a Principal Research Scientist. I earned my PhD in Intelligent Science and Technology from Xiamen University. <br><br>
+
+I have always been passionate about technological research and am eager to continuously learn and explore cutting-edge advancements. On one hand, I actively collaborate with professors and students from various universities, co-authoring academic papers and pushing the boundaries of technology through intellectual exchange. On the other hand, I reinforce the concept of technology implementation in industry, striving to transform research findings into real-world products and drive technological applications and development in the industry. <br><br>
+
+In my spare time, I enjoy long-distance running and have completed six full marathons. I believe that running a marathon requires patience and perseverance, qualities that also benefit my work. I am someone who enjoys trying new things and exploring various possibilities. This adventurous spirit enables me to tackle challenges with creativity and makes my life more diverse and fulfilling.">
+                           I am Mingbao Lin. I am currently a Visiting Research Fellow at the National University of Singapore and will soon be joining Rakuten Singapore as a Principal Research Scientist. I earned my PhD in Intelligent Science and Technology from Xiamen University.<<br><br>
+
+I have always been passionate about technological research and am eager to continuously learn and explore cutting-edge advancements. On one hand, I actively collaborate with professors and students from various universities, co-authoring academic papers and pushing the boundaries of technology through intellectual exchange. On the other hand, I reinforce the concept of technology implementation in industry, striving to transform research findings into real-world products and drive technological applications and development in the industry.  <br><br>
+
+In my spare time, I enjoy long-distance running and have completed six full marathons. I believe that running a marathon requires patience and perseverance, qualities that also benefit my work. I am someone who enjoys trying new things and exploring various possibilities. This adventurous spirit enables me to tackle challenges with creativity and makes my life more diverse and fulfilling. 
+                </p>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <h4 class="section-title" data-zh="研究方向" data-en="Research Interests">Research Interests</h4>
+           <p class = "justify-text" data-zh="我的研究专注于深度神经网络的模型压缩与加速，这一领域我已积累近十年经验。研究涵盖卷积神经网络、视觉Transformer、(多模态)大语言模型和扩散模型。其中，以第一作者发表的论文单篇最高引用量超千次。 
+                       在工业界，我将研究成果应用于实际项目。在大语言模型预训练上投入一年半，在语音对话模型上超过一年，并在多模态模型理解任务中积累了丰富经验。这些成果已成功应用于公司产品。<br><br>
+        近期工作重点包括：
+        <ul>
+            <li>视频生成扩散模型的压缩与加速。</li>
+            <li>端到端语音对话系统的优化。</li>
+            <li>大语言模型Reasoning训练与推理加速。</li>
+            <li>3D高斯表征学习。</li>
+        </ul>"
+             data-en="My research focuses on model compression and acceleration for deep neural networks, an area where I have accumulated nearly a decade of experience. 
+              My work spans convolutional neural networks, vision transformers, (multimodal) large language models, and diffusion models. 
+              I have published several papers as the first author, with one achieving over a thousand citations.
+              In the industry, I have applied my research to practical projects. I spent one and a half years on pretraining large language models, over a year on speech dialogue models, and gained extensive experience in multimodal model understanding tasks. 
+              These achievements have been successfully integrated into company products. <br><br>
+        My recent work priorities include:
+        <ul>
+            <li>Compression and acceleration of video generation diffusion models.</li>
+            <li>Optimization of end-to-end speech dialogue systems.</li>
+            <li>Acceleration of reasoning training and inference for large language models.</li>
+            <li>3D Gaussian representation learning.</li>
+        </ul>">
+        </p>
+        <hr>
+
+        <h4 class="section-title" data-zh="发表论文" data-en="Publications">Publications</h4>
+
+        <!-- Preprint Table -->
+        <p id="note" data-en="<strong>Note:</strong> * indicates equal contribution, ✉ indicates corresponding author." data-zh="<strong>注：</strong> * 表示相同贡献，✉ 表示通讯作者。"></p>
+        <h5 data-zh="精选预印本", data-en="Selected Preprint">Selected Preprint</h5>
+        <table>
+            <thead>
+                <tr>
+                    <th data-zh="标题" data-en="Title">Title</th>
+                    <th data-zh="作者" data-en="Authors">Authors</th>
+                    <th data-zh="发表位置" data-en="Published In">Published In</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Head-Aware KV Cache Compression for Efficient Visual Autoregressive Modeling</td>
+                    <td>Ziran Qin, Youru Lv, <strong>Mingbao Lin✉</strong>, Zeren Zhang, Danping Zou, Weiyao Lin✉</td>
+                    <td>arXiv preprint arXiv:2504.09261, 2025</td>
+                </tr>        
+                <tr>
+                    <td>CPPO: Accelerating the Training of Group Relative Policy Optimization-Based Reasoning Models</td>
+                    <td>Zhihang Lin, <strong>Mingbao Lin</strong>, Yuan Xie, Rongrong Ji✉</td>
+                    <td>arXiv preprint arXiv:2503.22342, 2025</td>
+                </tr>
+                <tr>
+                    <td>Audio-Reasoner: Improving Reasoning Capability in Large Audio Language Models</td>
+                    <td>Zhifei Xie*, <strong>Mingbao Lin</strong>*, Zihang Liu*, Pengcheng Wu, Shuicheng Yan✉, Chunyan Miao✉</td>
+                    <td>arXiv preprint arXiv:2503.02318, 2025</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!-- 2025 Year Publications Table -->
+        <br>
+        <h5>2025</h5>
+        <table>
+            <thead>
+                <tr>
+                    <th data-zh="标题" data-en="Title">Title</th>
+                    <th data-zh="作者" data-en="Authors">Authors</th>
+                    <th data-zh="发表位置" data-en="Published In">Published In</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AccDiffusion v2: Towards More Accurate Higher-Resolution Diffusion Extrapolation</td>
+                    <td>Zhihang Lin, <strong>Mingbao Lin</strong>, Wengyi Zhan, Rongrong Ji✉</td>
+                    <td>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</td>
+                </tr>
+                <tr>
+                    <td>Spatial Re-parameterization for N: M Sparsity</td>
+                    <td>Yuxin Zhang, <strong>Mingbao Lin</strong>, Mingliang Xu, Yonghong Tian, Rongrong Ji✉</td>
+                    <td>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</td>
+                </tr>
+                <tr>
+                    <td>EasyInv: Toward Fast and Better DDIM Inversion</td>
+                    <td>Ziyue Zhang*, <strong>Mingbao Lin*</strong>, Shuicheng Yan, Rongrong Ji✉</td>
+                    <td>International Conference on Machine Learning (ICML)</td>
+                </tr>
+                <tr>
+                    <td>CAKE: Cascading and Adaptive KV Cache Eviction with Layer Preferences</td>
+                    <td>Ziran Qin, Yuchen Cao, <strong>Mingbao Lin✉</strong>, Wen Hu, Shixuan Fan, Ke Cheng, Weiyao Lin✉, Jianguo Li✉</td>
+                    <td>International Conference on Learning Representations (ICLR)</td>
+                </tr>
+                <tr>
+                    <td>Move and Act: Enhanced Object Manipulation and Background Integrity for Image Editing</td>
+                    <td>Pengfei Jiang, <strong>Mingbao Lin</strong>, Fei Chao✉</td>
+                    <td>Association for the Advancement of Artificial Intelligence (AAAI)</td>
+                </tr>
+                <tr>
+                    <td>Boosting Multimodal Large Language Models with Visual Tokens Withdrawal for Rapid Inference</td>
+                    <td>Zhihang Lin, <strong>Mingbao Lin</strong>, Luxi Lin, Rongrong Ji✉</td>
+                    <td>Association for the Advancement of Artificial Intelligence (AAAI)</td>
+                </tr>
+                <tr>
+                    <td>Distribution-Flexible Subset Quantization for Post-Quantizing Super-Resolution Networks</td>
+                    <td>Yunshan Zhong, <strong>Mingbao Lin</strong>, Jingjing Xie, Yuxin Zhang, Fei Chao, Rongrong Ji✉</td>
+                    <td>Science China Information Sciences (SCIS)</td>
+                </tr>
+                <tr>
+                    <td>Low-Rank Winograd Transformation for 3D Convolutional Neural Networks</td>
+                    <td>Ziran Qin, <strong>Mingbao Lin</strong>, Huabin Liu, John See, Zou Gui, Weiyao Lin✉</td>
+                    <td>Science China Information Sciences (SCIS)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 2024 Year Publications Table -->
+        <br>
+        <h5>2024</h5>
+        <table>
+            <thead>
+                <tr>
+                    <th data-zh="标题" data-en="Title">Title</th>
+                    <th data-zh="作者" data-en="Authors">Authors</th>
+                    <th data-zh="发表位置" data-en="Published In">Published In</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Learning 1-Bit Tiny Object Detector with Discriminative Feature Refinement</td>
+                    <td>Sheng Xu*, Mingze Wang*, Yanjing Li*, <strong>Mingbao Lin</strong>, Baochang Zhang✉, David Doermann, Xiao Sun</td>
+                    <td>International Conference on Machine Learning (ICML)</td>
+                </tr>
+                <tr>
+                    <td>Advancing Multimodal Large Language Models with Quantization-Aware Scale Learning for Efficient Adaptation</td>
+                    <td>Jingjing Xie, Yuxin Zhang, <strong>Mingbao Lin</strong>, Liujuan Cao✉, Rongrong Ji</td>
+                    <td>ACM International Conference on Multimedia (MM)</td>
+                </tr>
+                <tr>
+                    <td>AnySR: Realizing Image Super-Resolution as Any-Scale, Any-Resource</td>
+                    <td>Wengyi Zhan, <strong>Mingbao Lin</strong>, Chia-Wen Lin, Rongrong Ji✉</td>
+                    <td>IEEE Transactions on Image Processing (TIP)</td>
+                </tr>
+                <tr>
+                    <td>LLMs-as-Instructors: Learning from Errors Toward Automating Model Improvement</td>
+                    <td>Jiahao Ying, <strong>Mingbao Lin</strong>, Yixin Cao✉, Wei Tang, Bo Wang, Qianru Sun, Xuanjing Huang, Shuicheng Yan✉</td>
+                    <td>Findings of Empirical Methods in Natural Language Processing (EMNLP Findings)</td>
+                </tr>
+                <tr>
+                    <td>AccDiffusion: An Accurate Method for Higher-Resolution Image Generation</td>
+                    <td>Zhihang Lin, <strong>Mingbao Lin</strong>, Meng Zhao, Rongrong Ji✉</td>
+                    <td>European Conference on Computer Vision (ECCV)</td>
+                </tr>
+                <tr>
+                    <td>UniPTS: A Unified Framework for Proficient Post-Training Sparsity</td>
+                    <td>Jingjing Xie, Yuxin Zhang, <strong>Mingbao Lin</strong>, Zhihang Lin, Liujuan Cao✉, Rongrong Ji</td>
+                    <td>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</td>
+                </tr>
+                <tr>
+                    <td>Dynamic Sparse No Training: Training-Free Fine-tuning for Sparse LLMs</td>
+                    <td>Yuxin Zhang*, Lirui Zhao*, <strong>Mingbao Lin</strong>, Yunyun Sun, Yiwu Yao, Xingjia Han, Jared Tanner, Shiwei Liu, Rongrong Ji✉</td>
+                    <td>International Conference on Learning Representations (ICLR)</td>
+                </tr>
+                <tr>
+                    <td>Shadow-Aware Dynamic Convolution for Shadow Removal</td>
+                    <td>Yimin Xu, <strong>Mingbao Lin</strong>, Hong Yang, Fei Chao, Rongrong Ji✉</td>
+                    <td>Pattern Recognition (PR)</td>
+                </tr>
+                <tr>
+                    <td>Bi-ViT: Pushing the Limit of Vision Transformer Quantization</td>
+                    <td>Yanjing Li*, Sheng Xu*, <strong>Mingbao Lin</strong>, Xianbin Cao✉, Chuanjian Liu, Xiao Sun✉, Baochang Zhang</td>
+                    <td>Association for the Advancement of Artificial Intelligence (AAAI)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 2023 Year Publications Table -->
+        <br>
+        <h5>2023</h5>
+        <table>
+            <thead>
+                <tr>
+                    <th data-zh="标题" data-en="Title">Title</th>
+                    <th data-zh="作者" data-en="Authors">Authors</th>
+                    <th data-zh="发表位置" data-en="Published In">Published In</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Representation Disparity-aware Distillation for 3D Object Detection</td>
+                    <td>Yanjing Li*, Sheng Xu*, <strong>Mingbao Lin</strong>, Jihao Yin, Baochang Zhang, Xianbin Cao✉</td>
+                    <td>International Conference on Computer Vision (ICCV)</td>
+                </tr>
+                <tr>
+                    <td>DiffRate: Differentiable Compression Rate for Efficient Vision Transformers</td>
+                    <td>Mengzhao Chen, Wenqi Shao, Peng Xu, <strong>Mingbao Lin</strong>, Kaipeng Zhang, Fei Chao, Rongrong Ji✉, Yu Qiao, Ping Luo</td>
+                    <td>International Conference on Computer Vision (ICCV)</td>
+                </tr>
+                <tr>
+                    <td>SMMix: Self-Motivated Image Mixing for Vision Transformers</td>
+                    <td>Mengzhao Chen, <strong>Mingbao Lin</strong>, ZhiHang Lin, Yuxin Zhang, Fei Chao, Rongrong Ji✉</td>
+                    <td>International Conference on Computer Vision (ICCV)</td>
+                </tr>
+                <tr>
+                    <td>Binary Neural Networks: Algorithms, Architectures, and Applications</td>
+                    <td>Baochang Zhang✉, Sheng Xu, <strong>Mingbao Lin</strong>, Tiancheng Wang, David Doermann</td>
+                    <td>CRC Press</td>
+                </tr>
+                <tr>
+                    <td>Super Vision Transformer</td>
+                    <td><strong>Mingbao Lin</strong>*, Mengzhao Chen*, Yuxin Zhang, Chunhua Shen, Rongrong Ji, Liujuan Cao✉</td>
+                    <td>International Journal of Computer Vision (IJCV)</td>
+                </tr>
+                <tr>
+                    <td>Discriminator-Cooperated Feature Map Distillation for GAN Compression</td>
+                    <td>Tie Hu, <strong>Mingbao Lin</strong>, Lizhou You, Fei Chao, Rongrong Ji✉</td>
+                    <td>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</td>
+                </tr>
+                <tr>
+                    <td>Q-DETR: An Efficient Low-Bit Quantized Detection Transformer</td>
+                    <td>Sheng Xu*, Yanjing Li*, <strong>Mingbao Lin</strong>, Peng Gao, Guodong Guo, Jinhu Lü, Baochang Zhang✉</td>
+                    <td>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</td>
+                </tr>
+                <tr>
+                    <td>Lottery Jackpots Exist in Pre-trained Models</td>
+                    <td>Yuxin Zhang, <strong>Mingbao Lin</strong>, Yunshan Zhong, Fei Chao, Rongrong Ji✉</td>
+                    <td>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</td>
+                </tr>
+                <tr>
+                    <td>Training Compact CNNs for Image Classification using Dynamic-coded Filter Fusion</td>
+                    <td><strong>Mingbao Lin</strong>, Bohong Chen, Fei Chao, Rongrong Ji✉</td>
+                    <td>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</td>
+                </tr>
+                <tr>
+                    <td>Prioritized Subnet Sampling for Resource-Adaptive Supernet Training</td>
+                    <td>Bohong Chen, <strong>Mingbao Lin</strong>, Rongrong Ji, Liujuan Cao✉</td>
+                    <td>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</td>
+                </tr>
+                <tr>
+                    <td>Resilient Binary Neural Network</td>
+                    <td>Sheng Xu*, Yanjing Li*, Teli Ma*, <strong>Mingbao Lin</strong>, Hao Dong, Baochang Zhang✉, Peng Gao, Jinhu Lü</td>
+                    <td>Association for the Advancement of Artificial Intelligence (AAAI)</td>
+                </tr>
+                <tr>
+                    <td>End-to-End Zero-Shot HOI Detection via Vision and Language Knowledge Distillation</td>
+                    <td>Mingrui Wu*, Jiaxin Gu*, Yunhang Shen, <strong>Mingbao Lin</strong>, Chao Chen, Xiaoshuai Sun✉</td>
+                    <td>Association for the Advancement of Artificial Intelligence (AAAI)</td>
+                </tr>
+                <tr>
+                    <td>CF-ViT: A General Coarse-to-Fine Method for Vision Transformer</td>
+                    <td>Mengzhao Chen, <strong>Mingbao Lin</strong>, Ke Li, Yunhang Shen, Yongjian Wu, Fei Chao, Rongrong Ji✉</td>
+                    <td>Association for the Advancement of Artificial Intelligence (AAAI)</td>
+                </tr>
+                <tr>
+                    <td>Bi-directional Masks for Efficient N: M Sparse Training</td>
+                    <td>Yuxin Zhang*, Yiting Luo*, <strong>Mingbao Lin</strong>, Yunshan Zhong, Jingjing Xie, Fei Chao, Rongrong Ji✉</td>
+                    <td>International Conference on Machine Learning (ICML)</td>
+                </tr>
+                <tr>
+                    <td>Real-Time Image Demoireing on Mobile Devices</td>
+                    <td>Yuxin Zhang, <strong>Mingbao Lin</strong>, Xunchao Li, Han Liu, Guozhi Wang, Fei Chao, Shuai Ren, Yafei Wen, Xiaoxin Chen, Rongrong Ji✉</td>
+                    <td>International Conference on Learning Representations (ICLR)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 2022 Year Publications Table -->
+        <br>
+        <h5>2022</h5>
+        <table>
+            <thead>
+                <tr>
+                    <th data-zh="标题" data-en="Title">Title</th>
+                    <th data-zh="作者" data-en="Authors">Authors</th>
+                    <th data-zh="发表位置" data-en="Published In">Published In</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>SiMaN: Sign-to-Magnitude Network Binarization</td>
+                    <td><strong>Mingbao Lin</strong>, Rongrong Ji✉, Zihan Xu, Baochang Zhang, Fei Chao, Chia-Wen Lin, Ling Shao</td>
+                    <td>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</td>
+                </tr>
+                <tr>
+                    <td>1xN Pattern for Pruning Convolutional Neural Networks</td>
+                    <td><strong>Mingbao Lin</strong>, Yuxin Zhang, Yuchao Li, Bohong Chen, Fei Chao, Mengdi Wang, Shen Li, Yonghong Tian, Rongrong Ji✉</td>
+                    <td>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</td>
+                </tr>
+                <tr>
+                    <td>Dynamic Support Network for Few-shot Class Incremental Learning</td>
+                    <td>Boyu Yang, <strong>Mingbao Lin</strong>, Yunxiao Zhang, Binghao Liu, Xiaodan Liang, Rongrong Ji, Qixiang Ye✉</td>
+                    <td>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</td>
+                </tr>
+                <tr>
+                    <td>Learning Best Combination for Efficient N: M Sparsity</td>
+                    <td>Yuxin Zhang, <strong>Mingbao Lin</strong>, Zhihang Lin, Yiting Luo, Ke Li, Fei Chao, Yongjian Wu, Rongrong Ji✉</td>
+                    <td>Advances in Neural Information Processing Systems (NeurIPS)</td>
+                </tr>
+                <tr>
+                    <td>Knowledge Condensation Distillation</td>
+                    <td>Chenxin Li, <strong>Mingbao Lin</strong>, Zhiyuan Ding, Nie Lin, Yihong Zhuang, Yue Huang✉, Xinhao Ding, Liujuan Cao</td>
+                    <td>European Conference on Computer Vision (ECCV)</td>
+                </tr>
+                <tr>
+                    <td>SeqTR: A Simple yet Universal Network for Visual Grounding</td>
+                    <td>Chaoyang Zhu, Yiyi Zhou, Yunhang Shen, Gen Luo, Xingjia Pan, <strong>Mingbao Lin</strong>, Chao Chen, Liujuan Cao✉, Xiaoshuai Sun, Rongrong Ji</td>
+                    <td>European Conference on Computer Vision (ECCV)</td>
+                </tr>
+                <tr>
+                    <td>ARM: Any-Time Super-Resolution Method</td>
+                    <td>Bohong Chen, <strong>Mingbao Lin</strong>, Kekai Sheng, Mengdan Zhang, Peixian Chen, Ke Li, Liujuan Cao✉, Rongrong Ji</td>
+                    <td>European Conference on Computer Vision (ECCV)</td>
+                </tr>
+                <tr>
+                    <td>Dynamic Dual Trainable Bounds for Ultra-low Precision Super-Resolution Networks</td>
+                    <td>Yunshan Zhong, <strong>Mingbao Lin</strong>, Xunchao Li, Ke Li, Yunhang Shen, Fei Chao, Yongjian Wu, Rongrong Ji✉</td>
+                    <td>European Conference on Computer Vision (ECCV)</td>
+                </tr>
+                <tr>
+                    <td>Fine-grained Data Distribution Alignment for Post-Training Quantization</td>
+                    <td>Yunshan Zhong, <strong>Mingbao Lin</strong>, Mengzhao Chen, Ke Li, Yunhang Shen, Fei Chao, Yongjian Wu, Rongrong Ji✉</td>
+                    <td>European Conference on Computer Vision (ECCV)</td>
+                </tr>
+                <tr>
+                    <td>Carrying Out CNN Channel Pruning in a White Box</td>
+                    <td>Yuxin Zhang, <strong>Mingbao Lin</strong>, Chia-Wen Lin, Jie Chen, Yongjian Wu, Yonghong Tian, Rongrong Ji✉</td>
+                    <td>IEEE Transactions on Neural Networks and Learning System (TNNLS)</td>
+                </tr>
+                <tr>
+                    <td>Pruning Networks with Cross-Layer Ranking & k-Reciprocal Nearest Filters</td>
+                    <td><strong>Mingbao Lin</strong>, Liujuan Cao, Yuxin Zhang, Ling Shao, Chia-Wen Lin, Rongrong Ji✉</td>
+                    <td>IEEE Transactions on Neural Networks and Learning System (TNNLS)</td>
+                </tr>
+                <tr>
+                    <td>Learning Efficient GANs for Image Translation via Differentiable Masks and co-Attention Distillation</td>
+                    <td>Shaojie Li, <strong>Mingbao Lin</strong>, Yan Wang, Fei Chao, Ling Shao, Rongrong Ji✉</td>
+                    <td>IEEE Transactions on Multimedia (TMM)</td>
+                </tr>
+                <tr>
+                    <td>IntraQ: Learning Synthetic Images with Intra-Class Heterogeneity for Zero-Shot Network Quantization</td>
+                    <td>Yunshan Zhong, <strong>Mingbao Lin</strong>, Gongrui Nan, Jianzhuang Liu, Baochang Zhang, Yonghong Tian, Rongrong Ji✉</td>
+                    <td>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</td>
+                </tr>
+                <tr>
+                    <td>Distilling a Powerful Student Model via Online Knowledge Distillation</td>
+                    <td>Shaojie Li, <strong>Mingbao Lin</strong>, Yan Wang, Yongjian Wu, Yonghong Tian, Ling Shao, Rongrong Ji✉</td>
+                    <td>IEEE Transactions on Neural Networks and Learning System (TNNLS)</td>
+                </tr>
+            </tbody>
+        </table>
+                
+        <!-- 2021 Year Publications Table -->
+        <br>
+        <h5>2021</h5>
+        <table>
+            <thead>
+                <tr>
+                    <th data-zh="标题" data-en="Title">Title</th>
+                    <th data-zh="作者" data-en="Authors">Authors</th>
+                    <th data-zh="发表位置" data-en="Published In">Published In</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ReCU: Reviving the Dead Weights in Binary Neural Networks</td>
+                    <td>Zihan Xu, <strong>Mingbao Lin</strong>, Jianzhuang Liu, Jie Chen, Ling Shao, Yue Gao, Yonghong Tian, Rongrong Ji✉</td>
+                    <td>International Conference on Computer Vision (ICCV)</td>
+                </tr>
+                <tr>
+                    <td>Filter Sketch for Network Pruning</td>
+                    <td><strong>Mingbao Lin</strong>, Liujuan Cao, Shaojie Li, Qixiang Ye, Yonghong Tian, Jianzhuang Liu, Qi Tian, Rongrong Ji✉</td>
+                    <td>IEEE Transactions on Neural Networks and Learning Systems (TNNLS)</td>
+                </tr>
+                <tr>
+                    <td>Network Pruning Using Adaptive Exemplar Filters</td>
+                    <td><strong>Mingbao Lin</strong>, Rongrong Ji✉, Shaojie Li, Yan Wang, Yongjian Wu, Feiyue Huang, Qixiang Ye</td>
+                    <td>IEEE Transactions on Neural Networks and Learning System (TNNLS)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 2020 Year Publications Table -->
+        <br>
+        <h5>2020</h5>
+        <table>
+            <thead>
+                <tr>
+                    <th data-zh="标题" data-en="Title">Title</th>
+                    <th data-zh="作者" data-en="Authors">Authors</th>
+                    <th data-zh="发表位置" data-en="Published In">Published In</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HRank: Filter Pruning using High-Rank Feature Map</td>
+                    <td><strong>Mingbao Lin</strong>, Rongrong Ji✉, Yan Wang, Yichen Zhang, Baochang Zhang, Yonghong Tian, Ling Shao</td>
+                    <td>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</td>
+                </tr>
+                <tr>
+                    <td>Fast Class-wise Updating for Online Hashing</td>
+                    <td><strong>Mingbao Lin</strong>, Rongrong Ji✉, Xiaoshuai Sun, Baochang Zhang, Feiyue Huang, Yonghong Tian, Dacheng Tao</td>
+                    <td>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</td>
+                </tr>
+                <tr>
+                    <td>Rotated Binary Neural Network</td>
+                    <td><strong>Mingbao Lin</strong>, Rongrong Ji✉, Zihan Xu, Baochang Zhang, Yan Wang, Yongjian Wu, Feiyue Huang, Chia-Wen Lin</td>
+                    <td>Advances in Neural Information Processing Systems (NeurIPS)</td>
+                </tr>
+                <tr>
+                    <td>Similarity-Preserving Linkage Hashing for Online Image Retrieval</td>
+                    <td><strong>Mingbao Lin</strong>, Rongrong Ji✉, Shen Chen, Xiaoshuai Sun, Chia-Wen Lin</td>
+                    <td>IEEE Transactions on Image Processing (TIP)</td>
+                </tr>
+                <tr>
+                    <td>Channel Pruning via Automatic Structure Search</td>
+                    <td><strong>Mingbao Lin</strong>, Rongrong Ji✉, Yuxin Zhang, Baochang Zhang, Yongjian Wu, Yonghong Tian</td>
+                    <td>International Joint Conference on Artificial Intelligence (IJCAI)</td>
+                </tr>
+                <tr>
+                    <td>Hadamard Matrix Guided Online Hashing</td>
+                    <td><strong>Mingbao Lin</strong>, Rongrong Ji✉, Hong Liu, Xiaoshuai Sun, Shen Chen, Qi Tian</td>
+                    <td>International Journal of Computer Vision (IJCV)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 2019 Year Publications Table -->
+        <br>
+        <h5>2019</h5>
+        <table>
+            <thead>
+                <tr>
+                    <th data-zh="标题" data-en="Title">Title</th>
+                    <th data-zh="作者" data-en="Authors">Authors</th>
+                    <th data-zh="发表位置" data-en="Published In">Published In</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Towards Optimal Discrete Online Hashing with Balanced Similarity</td>
+                    <td><strong>Mingbao Lin</strong>, Rongrong Ji✉, Hong Liu, Xiaoshuai Sun, Yongjian Wu, Yunsheng Wu</td>
+                    <td>Association for the Advancement of Artificial Intelligence (AAAI)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 2018 Year Publications Table -->
+        <br>
+        <h5>2018</h5>
+        <table>
+            <thead>
+                <tr>
+                    <th data-zh="标题" data-en="Title">Title</th>
+                    <th data-zh="作者" data-en="Authors">Authors</th>
+                    <th data-zh="发表位置" data-en="Published In">Published In</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Supervised Online Hashing via Hadamard Codebook Learning</td>
+                    <td><strong>Mingbao Lin</strong>, Rongrong Ji✉, Hong Liu, Yongjian Wu</td>
+                    <td>ACM International Conference on Multimedia (MM)</td>
+                </tr>
+                <tr>
+                    <td>Dense Auto-Encoder Hashing for Robust Cross-Modality Retrieval</td>
+                    <td>Hong Liu*, <strong>Mingbao Lin</strong>*, Shengchuan Zhang, Yongjian Wu, Feiyue Huang, Rongrong Ji✉</td>
+                    <td>ACM International Conference on Multimedia (MM)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+        
+    </div>
+    
+    <!-- 隐藏地图容器 -->
+    <div class="hidden-map-container">
+        <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=200&t=tt&d=4VplLLIX4jzBrhnf1ANh9AQbJ_LfRJujnMihYuR_RSc&co=ffffff&ct=808080&cmo=3acc3a&cmn=ff5353'></script>
+    </div>
+    
+    <footer>
+        <p id="footer-text">&copy; 2025 Mingbao Lin. All rights reserved. | Contact: linmb001@outlook.com</p>
+    </footer>
+</body>
+</html>
